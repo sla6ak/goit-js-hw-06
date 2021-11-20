@@ -12,3 +12,35 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+const galleryUl = document.querySelector( '.js-gallery' )
+
+// создадим верстку страницы в массиве
+const galleryLi = []
+
+// переберем все элементы которые необходимо создать
+images.forEach(  elem => {
+  
+  // создаем лишки
+  let photoLi = document.createElement( 'li' )
+  photoLi.classList.add( 'li-photo' )
+
+  // создаем элементы изображений
+  let photo = document.createElement( 'img' )
+  photo.src = elem.url
+  photo.alt = elem.alt
+  photo.height = '400'
+  photo.width = '600'
+
+  // привязываем изображения в лишки внутри цикла
+  photoLi.appendChild( photo )
+  
+  // добавляем каждую ли в массив
+  galleryLi.push( photoLi )
+  
+} ) 
+
+// прикрепляем получившуюся верстку к html документу
+galleryUl.append(...galleryLi)
+
+console.log(galleryLi)
