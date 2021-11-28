@@ -66,9 +66,6 @@ function createBoxes( amount ){
 // функция удаления дивов по введенному количеству штук
 // понятно что это неоптимизированно много раз обратиться к dom
 // но вариант удалить общий див с дивами одним махом мение гибок
-// я попробую его реализовать, проблемма в том что тогда сложно добавлять 
-// новые дивы нужного размера так как функция снова будет создавать общий див для вложеных
-// думаю это реализуемо добавив проверку есть ли уже родительский бокс
 function destroyBoxes ( amount ) {
   for ( let d = 0; d < amount; d += 1 ){
       refs.box.lastChild.remove()
@@ -76,8 +73,5 @@ function destroyBoxes ( amount ) {
 }
 
 function destroyAllBoxes () {
-  let namberDivs = refs.box.children.length 
-  for ( let del = 0; del < namberDivs; del += 1 ){
-    refs.box.lastElementChild.remove()
-  } 
+  refs.box.innerHTML = ""
 }
